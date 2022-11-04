@@ -1,0 +1,27 @@
+﻿@model MvcStok.Models.Entity.Tbl_Musteriler
+
+@{
+    ViewBag.Title = "MusteriGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!--Alttaki ilk ne yapılınca çalışacak güncelleye tıklanınca. Nerede Musteri, Ne zaman bu işlemi yapıcak post olunca.-->
+@using (Html.BeginForm("Guncelle", "Musteri", FormMethod.Post))
+{
+    <div class)="form-group">
+        @Html.LabelFor(m => m.MUSTERIID)
+        @Html.TextBoxFor(m => m.MUSTERIID, new { @class = "form-control" })
+        <br />
+        <!--İlk yazdığımız Veritabanından o sütunun ismini getiriyor oraya müşteri adları yazsak daha kolay olur. Alttaki kısımda göstereceğim.-->
+        @Html.LabelFor(m => m.MUSTERIAD)
+        @Html.TextBoxFor(m => m.MUSTERIAD, new { @class = "form-control" })
+        <br />
+        Müşteri Soyadı
+        @Html.TextBoxFor(m => m.MUSTERISOYAD, new { @class = "form-control" })
+        
+    </div>
+    <div>
+        <br />
+        <button class="btn btn-warning">Müşteri Güncelle</button>
+    </div>
+}

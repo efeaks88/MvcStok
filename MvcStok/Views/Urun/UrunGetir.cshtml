@@ -1,0 +1,32 @@
+﻿@model MvcStok.Models.Entity.Tbl_Urunler
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
+{
+    <div class)="form-group">
+        @Html.LabelFor(m => m.URUNID)
+        @Html.TextBoxFor(m => m.URUNID, new { @class = "form-control" })
+        <br />
+        <!--İlk yazdığımız Veritabanından o sütunun ismini getiriyor oraya müşteri adları yazsak daha kolay olur. Alttaki kısımda göstereceğim.-->
+        @Html.LabelFor(m => m.URUNAD)
+        @Html.TextBoxFor(m => m.URUNAD, new { @class = "form-control" })
+        <br />
+        Marka
+        @Html.TextBoxFor(m => m.MARKA, new { @class = "form-control" })
+        Urun Kategori
+        @Html.DropDownListFor(m=>m.Tbl_Kategoriler.KATEGORIID,(List<SelectListItem>)ViewBag.dgr,new {@class ="form-control"})
+        @*@Html.TextBoxFor(m => m.URUNKATEGORI, new { @class = "form-control" })*@
+        Fiyat
+        @Html.TextBoxFor(m => m.FİYAT, new { @class = "form-control" })
+        Stok
+        @Html.TextBoxFor(m => m.Stok, new { @class = "form-control" })
+
+    </div>
+    <div>
+        <br />
+        <button class="btn btn-warning">Ürünleri Güncelle</button>
+    </div>
+}
